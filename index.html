@@ -13,21 +13,24 @@
         ====================================================================
         🎨 🎨 🎨 🔴 AQUÍ PUEDES CAMBIAR LOS COLORES 🔴 🎨 🎨 🎨
         ====================================================================
-        Solo cambia los valores que están después de los dos puntos.
-        Puedes usar nombres de colores (ej. 'black', 'white') o códigos HEX (ej. '#ff5733')
         */
         :root {
-            --color-fondo: #f3f4f6;          /* Color del fondo de toda la página */
-            --color-boton-fondo: #ffffff;    /* Color del fondo de los botones */
-            --color-boton-texto: #1f2937;    /* Color del texto y del icono del botón */
-            --color-boton-borde: #d1d5db;    /* Color del borde del botón */
-            
-            --color-boton-hover: #e5e7eb;    /* Color del botón cuando pasas el ratón por encima */
+            /* 🟡 Color de fondo para el círculo de tu logo (si tu PNG tiene fondo transparente) */
+            --color-circulo-logo: #ffffff; 
+
+            /* Colores para el degradado en movimiento del fondo general */
+            --color-fondo-1: #f3bc18;    
+            --color-fondo-2: #ee7a15;    
+            --color-fondo-3: #ffcc4d;    
         }
         /* ==================================================================== */
 
         body {
-            background-color: var(--color-fondo);
+            /* Configuración del degradado animado */
+            background: linear-gradient(-45deg, var(--color-fondo-1), var(--color-fondo-2), var(--color-fondo-3));
+            background-size: 400% 400%;
+            animation: moverDegradado 10s ease infinite;
+            
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             display: flex;
             justify-content: center;
@@ -38,23 +41,44 @@
             box-sizing: border-box;
         }
 
+        /* Animación del fondo */
+        @keyframes moverDegradado {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .contenedor {
             width: 100%;
             max-width: 400px;
             text-align: center;
         }
 
-        /* Estilo del Logo */
-        .logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%; /* Hace que la imagen sea circular (borra esta línea si tu logo es cuadrado) */
-            object-fit: cover;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        /* 
+        ====================================================================
+        🟡 ESTO GARANTIZA EL CÍRCULO PERFECTO (ESTILO FOTO DE PERFIL) 
+        ====================================================================
+        */
+        .contenedor-perfil {
+            width: 140px;          /* Ancho exacto del círculo */
+            height: 140px;         /* Alto exacto del círculo */
+            background-color: var(--color-circulo-logo);
+            border-radius: 50%;    /* Hace que sea un círculo perfecto siempre */
+            margin: 0 auto 30px auto; /* Lo centra horizontalmente */
+            overflow: hidden;      /* 🔴 CLAVE: Recorta cualquier parte de la imagen que se salga del círculo */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* Estilo de los Botones */
+        .contenedor-perfil img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 🔴 CLAVE: Hace que la imagen llene todo el círculo y se centre perfectamente */
+        }
+
+        /* Estilo Base de los Botones */
         .boton-link {
             display: flex;
             align-items: center;
@@ -62,27 +86,41 @@
             width: 100%;
             padding: 16px;
             margin-bottom: 16px;
-            background-color: var(--color-boton-fondo);
-            color: var(--color-boton-texto);
             text-decoration: none;
-            border: 2px solid var(--color-boton-borde);
-            border-radius: 30px; /* Bordes redondeados */
+            border-radius: 30px;
             font-size: 16px;
             font-weight: 600;
+            color: #ffffff;
             transition: all 0.3s ease;
             position: relative;
             box-sizing: border-box;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: none;
         }
 
         .boton-link:hover {
-            background-color: var(--color-boton-hover);
-            transform: translateY(-2px); /* Pequeño efecto de salto al pasar el mouse */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            filter: brightness(1.1);
         }
 
         .boton-link i {
             position: absolute;
             left: 20px;
             font-size: 24px;
+        }
+
+        /* Colores Oficiales de Redes Sociales */
+        .btn-facebook {
+            background-color: #1877F2; 
+        }
+        
+        .btn-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .btn-tiktok {
+            background-color: #000000; 
         }
     </style>
 </head>
@@ -94,34 +132,33 @@
         ====================================================================
         🖼️ 🖼️ 🖼️ 🔴 AQUÍ PON EL LINK O NOMBRE DE TU LOGO 🔴 🖼️ 🖼️ 🖼️
         ====================================================================
-        Cambia "tu-logo.png" por el nombre de tu archivo si está en la misma
-        carpeta, o pega el enlace URL directo a tu imagen.
         -->
-        <img src="tu-logo.png" alt="Logo Principal" class="logo">
+        <div class="contenedor-perfil">
+            <img src="https://ibb.co/0RzfgZBR" alt="Foto de Perfil">
+        </div>
 
 
         <!-- 
         ====================================================================
         🔗 🔗 🔗 🔴 AQUÍ PON LOS LINKS DE TUS REDES SOCIALES 🔴 🔗 🔗 🔗
         ====================================================================
-        Cambia donde dice "AQUI_TU_LINK_DE_..." por la dirección de tu perfil.
         -->
 
         <!-- BOTÓN FACEBOOK -->
-        <a href="AQUI_TU_LINK_DE_FACEBOOK" class="boton-link" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-facebook" style="color: #1877F2;"></i> <!-- El style color le da el color original a la red social, puedes borrarlo si quieres todo monocromático -->
+        <a href="https://www.facebook.com/MozzarellaPizza.bo" class="boton-link btn-facebook" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-facebook"></i>
             Facebook
         </a>
 
         <!-- BOTÓN INSTAGRAM -->
-        <a href="AQUI_TU_LINK_DE_INSTAGRAM" class="boton-link" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-instagram" style="color: #E1306C;"></i>
+        <a href="https://www.instagram.com/mozzarellapizza.bolivia" class="boton-link btn-instagram" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i>
             Instagram
         </a>
 
         <!-- BOTÓN TIKTOK -->
-        <a href="AQUI_TU_LINK_DE_TIKTOK" class="boton-link" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-tiktok" style="color: #000000;"></i>
+        <a href="https://www.tiktok.com/@mozzarellapizza.bo" class="boton-link btn-tiktok" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-tiktok"></i>
             TikTok
         </a>
         
