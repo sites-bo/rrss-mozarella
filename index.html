@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Redes Sociales</title>
+    
+    <!-- Carga de iconos para las redes sociales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* 
+        ====================================================================
+        🎨 🎨 🎨 🔴 AQUÍ PUEDES CAMBIAR LOS COLORES 🔴 🎨 🎨 🎨
+        ====================================================================
+        Solo cambia los valores que están después de los dos puntos.
+        Puedes usar nombres de colores (ej. 'black', 'white') o códigos HEX (ej. '#ff5733')
+        */
+        :root {
+            --color-fondo: #f3f4f6;          /* Color del fondo de toda la página */
+            --color-boton-fondo: #ffffff;    /* Color del fondo de los botones */
+            --color-boton-texto: #1f2937;    /* Color del texto y del icono del botón */
+            --color-boton-borde: #d1d5db;    /* Color del borde del botón */
+            
+            --color-boton-hover: #e5e7eb;    /* Color del botón cuando pasas el ratón por encima */
+        }
+        /* ==================================================================== */
+
+        body {
+            background-color: var(--color-fondo);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .contenedor {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Estilo del Logo */
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; /* Hace que la imagen sea circular (borra esta línea si tu logo es cuadrado) */
+            object-fit: cover;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo de los Botones */
+        .boton-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 16px;
+            background-color: var(--color-boton-fondo);
+            color: var(--color-boton-texto);
+            text-decoration: none;
+            border: 2px solid var(--color-boton-borde);
+            border-radius: 30px; /* Bordes redondeados */
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .boton-link:hover {
+            background-color: var(--color-boton-hover);
+            transform: translateY(-2px); /* Pequeño efecto de salto al pasar el mouse */
+        }
+
+        .boton-link i {
+            position: absolute;
+            left: 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        
+        <!-- 
+        ====================================================================
+        🖼️ 🖼️ 🖼️ 🔴 AQUÍ PON EL LINK O NOMBRE DE TU LOGO 🔴 🖼️ 🖼️ 🖼️
+        ====================================================================
+        Cambia "tu-logo.png" por el nombre de tu archivo si está en la misma
+        carpeta, o pega el enlace URL directo a tu imagen.
+        -->
+        <img src="tu-logo.png" alt="Logo Principal" class="logo">
+
+
+        <!-- 
+        ====================================================================
+        🔗 🔗 🔗 🔴 AQUÍ PON LOS LINKS DE TUS REDES SOCIALES 🔴 🔗 🔗 🔗
+        ====================================================================
+        Cambia donde dice "AQUI_TU_LINK_DE_..." por la dirección de tu perfil.
+        -->
+
+        <!-- BOTÓN FACEBOOK -->
+        <a href="AQUI_TU_LINK_DE_FACEBOOK" class="boton-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-facebook" style="color: #1877F2;"></i> <!-- El style color le da el color original a la red social, puedes borrarlo si quieres todo monocromático -->
+            Facebook
+        </a>
+
+        <!-- BOTÓN INSTAGRAM -->
+        <a href="AQUI_TU_LINK_DE_INSTAGRAM" class="boton-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram" style="color: #E1306C;"></i>
+            Instagram
+        </a>
+
+        <!-- BOTÓN TIKTOK -->
+        <a href="AQUI_TU_LINK_DE_TIKTOK" class="boton-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-tiktok" style="color: #000000;"></i>
+            TikTok
+        </a>
+        
+        <!-- ==================================================================== -->
+
+    </div>
+
+</body>
+</html>
